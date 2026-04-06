@@ -365,24 +365,14 @@ erDiagram
 
 <p align="center">
 
-
-
-
-
-</p>
-
-### 📱 Mobile Application
-
-<p align="center">
+## Login Page
+![Login Page](assets/webpage-ss/login-page.jpeg)
 
 ## Homepage
-![Homepage](assets/webpage-ss/home-page.jpeg)
+![Homepage](assets/webpage-ss/homepage.jpeg)
 
 ## Driver View
 ![Driver View](assets/webpage-ss/driver-view.jpeg)
-
-## Login Page
-![Login Page](assets/webpage-ss/login-page.jpeg)
 
 ## Route Manage
 ![Route Manage](assets/webpage-ss/route-manage.jpeg)
@@ -414,6 +404,42 @@ erDiagram
 
 
 
+
+
+
+</p>
+
+### 📱 Mobile Application
+
+<p align="center">
+
+## Mobile Screenshots
+
+## Mobile Screenshots
+
+### Home
+![Home](assets/mobile-ss/home.png)
+
+### Login
+![Login](assets/mobile-ss/login.png)
+
+### Registration
+![Registration](assets/mobile-ss/reg.png)
+
+### Booking
+![Booking](assets/mobile-ss/booking.png)
+
+### View Seat
+![View Seat](assets/mobile-ss/view-seat.png)
+
+### Forgot Password
+![Forgot Password](assets/mobile-ss/forgot-pass.png)
+
+### Feedback
+![Feedback](assets/mobile-ss/feedback.png)
+
+### Bus Schedule
+![Bus Schedule](assets/mobile-ss/add-bus.png)
 
 
 </p>

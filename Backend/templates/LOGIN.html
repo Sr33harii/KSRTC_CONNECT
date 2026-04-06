@@ -1,0 +1,483 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>KSRTC Bus Service - Login</title>#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">#}
+{#    <style>#}
+{#        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');#}
+{##}
+{#        * {#}
+{#            margin: 0;#}
+{#            padding: 0;#}
+{#            box-sizing: border-box;#}
+{#            font-family: 'Roboto', sans-serif;#}
+{#        }#}
+{##}
+{#        body {#}
+{#            background: #000000; /* True black for premium feel */#}
+{#            min-height: 100vh;#}
+{#            display: flex;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            position: relative;#}
+{#            overflow: hidden;#}
+{#            color: #f1f5f9;#}
+{#        }#}
+{##}
+{#        /* Atmospheric blurred KSRTC bus in rain background */#}
+{#        body::before {#}
+{#            content: '';#}
+{#            position: absolute;#}
+{#            top: 0; left: 0; right: 0; bottom: 0;#}
+{#            background: url('https://fottam.com/wp-content/uploads/2019/03/Kerala-KSRTC-Fast-Passenger-bus-ernakulam-vyttila-hub-rain-long-exposure.jpg') center/cover no-repeat;#}
+{#            opacity: 0.25;#}
+{#            filter: blur(8px);#}
+{#            z-index: -1;#}
+{#        }#}
+{##}
+{#        .login-container {#}
+{#            background: rgba(15, 23, 42, 0.85); /* Deep slate with transparency */#}
+{#            backdrop-filter: blur(16px);#}
+{#            width: 90%;#}
+{#            max-width: 420px;#}
+{#            padding: 50px 40px;#}
+{#            border-radius: 24px;#}
+{#            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6),#}
+{#                        inset 0 0 20px rgba(255, 255, 255, 0.05);#}
+{#            text-align: center;#}
+{#            border: 1px solid rgba(255, 255, 255, 0.1);#}
+{#        }#}
+{##}
+{#        .logo {#}
+{#            width: 140px;#}
+{#            margin-bottom: 20px;#}
+{#            filter: brightness(1.2);#}
+{#        }#}
+{##}
+{#        .app-name {#}
+{#            font-size: 20px;#}
+{#            font-weight: 900;#}
+{#            letter-spacing: 2px;#}
+{#            text-transform: uppercase;#}
+{#            color: #fecaca;#}
+{#            margin-bottom: 8px;#}
+{#        }#}
+{##}
+{#        .headline {#}
+{#            font-size: 32px;#}
+{#            font-weight: 700;#}
+{#            color: #ffffff;#}
+{#            margin-bottom: 50px;#}
+{#            letter-spacing: 0.5px;#}
+{#        }#}
+{##}
+{#        .input-group {#}
+{#            position: relative;#}
+{#            margin-bottom: 24px;#}
+{#        }#}
+{##}
+{#        .input-group input {#}
+{#            width: 100%;#}
+{#            padding: 18px 18px 18px 56px;#}
+{#            background: rgba(30, 41, 59, 0.8);#}
+{#            border: 1px solid #475569;#}
+{#            border-radius: 16px;#}
+{#            font-size: 17px;#}
+{#            color: #f1f5f9;#}
+{#            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.3);#}
+{#            transition: all 0.3s ease;#}
+{#        }#}
+{##}
+{#        #password {#}
+{#            padding-right: 56px !important;#}
+{#        }#}
+{##}
+{#        .input-group input::placeholder {#}
+{#            color: #94a3b8;#}
+{#        }#}
+{##}
+{#        .input-group input:focus {#}
+{#            outline: none;#}
+{#            border-color: #ef4444;#}
+{#            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3),#}
+{#                        inset 0 4px 10px rgba(0, 0, 0, 0.3);#}
+{#        }#}
+{##}
+{#        .input-group i.fa-user,#}
+{#        .input-group i.fa-lock {#}
+{#            position: absolute;#}
+{#            left: 20px;#}
+{#            top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            color: #cbd5e1;#}
+{#            font-size: 20px;#}
+{#            pointer-events: none;#}
+{#        }#}
+{##}
+{#        .password-toggle {#}
+{#            position: absolute;#}
+{#            right: 20px;#}
+{#            top: 50%;#}
+{#            transform: translateY(-50%);#}
+{#            cursor: pointer;#}
+{#            color: #cbd5e1;#}
+{#            font-size: 20px;#}
+{#            z-index: 2;#}
+{#            transition: color 0.3s;#}
+{#        }#}
+{##}
+{#        .password-toggle:hover {#}
+{#            color: #ffffff;#}
+{#        }#}
+{##}
+{#        .forgot-link {#}
+{#            display: block;#}
+{#            margin: 20px 0 40px;#}
+{#            color: #fbbf24;#}
+{#            text-decoration: none;#}
+{#            font-size: 16px;#}
+{#            font-weight: 500;#}
+{#            transition: color 0.3s;#}
+{#        }#}
+{##}
+{#        .forgot-link:hover {#}
+{#            color: #fcd34d;#}
+{#            text-decoration: underline;#}
+{#        }#}
+{##}
+{#        .login-btn {#}
+{#            width: 100%;#}
+{#            padding: 18px;#}
+{#            background: linear-gradient(to right, #ef4444, #dc2626);#}
+{#            color: white;#}
+{#            border: none;#}
+{#            border-radius: 16px;#}
+{#            font-size: 19px;#}
+{#            font-weight: 700;#}
+{#            letter-spacing: 0.5px;#}
+{#            cursor: pointer;#}
+{#            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);#}
+{#            transition: all 0.3s ease;#}
+{#        }#}
+{##}
+{#        .login-btn:hover {#}
+{#            transform: translateY(-4px);#}
+{#            box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5);#}
+{#        }#}
+{##}
+{#        .login-btn:active {#}
+{#            transform: translateY(-1px);#}
+{#        }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#    <div class="login-container">#}
+{#        <!-- High-quality KSRTC logo -->#}
+{#        <img src="https://c8.alamy.com/comp/HR53TC/government-bus-logo-ksrtc-kerala-india-photo-copyright-saji-maramon-HR53TC.jpg" alt="KSRTC Logo" class="logo">#}
+{#        <div class="app-name">KSRTC</div>#}
+{#        <h1 class="headline">Welcome Back</h1>#}
+{##}
+{#        <form action="/myapp/login_post/" method="post">#}
+{#            {% csrf_token %}#}
+{##}
+{#            <div class="input-group">#}
+{#                <i class="fas fa-user"></i>#}
+{#                <input type="text" name="username" id="username" placeholder="Username" required>#}
+{#            </div>#}
+{##}
+{#            <div class="input-group">#}
+{#                <i class="fas fa-lock"></i>#}
+{#                <input type="password" name="password" id="password" placeholder="Password" required>#}
+{#                <i class="fas fa-eye password-toggle" id="togglePassword"></i>#}
+{#            </div>#}
+{##}
+{#            <a href="/myapp/forgot_password/" class="forgot-link">Forgot Password?</a>#}
+{##}
+{#            <button type="submit" class="login-btn">Login</button>#}
+{#        </form>#}
+{#    </div>#}
+{##}
+{#    <script>#}
+{#        const togglePassword = document.getElementById('togglePassword');#}
+{#        const password = document.getElementById('password');#}
+{##}
+{#        togglePassword.addEventListener('click', () => {#}
+{#            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';#}
+{#            password.setAttribute('type', type);#}
+{#            togglePassword.classList.toggle('fa-eye');#}
+{#            togglePassword.classList.toggle('fa-eye-slash');#}
+{#        });#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSRTC Bus Service - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        :root {
+            --white-color: hsl(0, 0%, 100%);
+            --black-color: hsl(0, 0%, 0%);
+            --body-font: 'Poppins', sans-serif;
+            --h1-font-size: 2rem;
+            --normal-font-size: 1rem;
+            --small-font-size: .875rem;
+            --font-medium: 500;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body, input, button {
+            font-size: var(--normal-font-size);
+            font-family: var(--body-font);
+        }
+
+        body {
+            color: var(--white-color);
+        }
+
+        input, button {
+            border: none;
+            outline: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .login {
+            position: relative;
+            height: 100vh;
+            display: grid;
+            align-items: center;
+        }
+
+        .login__img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .login__form {
+            position: relative;
+            background-color: hsla(0, 0%, 10%, 0.4);
+            border: 2px solid var(--white-color);
+            margin-inline: 1.5rem;
+            padding: 3.5rem 2rem;
+            border-radius: 1.5rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.5);
+        }
+
+        .login__title {
+            text-align: center;
+            font-size: var(--h1-font-size);
+            font-weight: 600;
+            margin-bottom: 3.5rem;
+            letter-spacing: 1px;
+        }
+
+        .login__content {
+            display: grid;
+            row-gap: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .login__box {
+            grid-template-columns: max-content 1fr;
+            align-items: center;
+            column-gap: 0.75rem;
+            border-bottom: 2px solid var(--white-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .login__icon {
+            font-size: 1.35rem;
+            color: var(--white-color);
+        }
+
+        .login__box-input {
+            position: relative;
+        }
+
+        .login__input {
+            width: 100%;
+            padding-block: 1rem;
+            background: none;
+            color: var(--white-color);
+            position: relative;
+            z-index: 1;
+            font-size: 1rem;
+        }
+
+        .login__label {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: var(--font-medium);
+            transition: top 0.3s, font-size 0.3s, background-color 0.3s, padding 0.3s;
+            pointer-events: none;
+            color: var(--white-color);
+        }
+
+        .login__eye {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--white-color);
+        }
+
+        .login__box:nth-child(2) .login__box-input {
+            padding-right: 2rem;
+        }
+
+        .login__forgot {
+            display: block;
+            text-align: right;
+            color: var(--white-color);
+            font-size: var(--small-font-size);
+            margin: 2rem 0 2.5rem;
+        }
+
+        .login__forgot:hover {
+            text-decoration: underline;
+        }
+
+        .login__button {
+            width: 100%;
+            padding: 1.1rem;
+            border-radius: 0.75rem;
+            background-color: var(--white-color);
+            color: #c53030;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login__button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Floating label - now sits perfectly on the border line with solid background */
+        .login__input:focus + .login__label,
+        .login__input:not(:placeholder-shown) + .login__label {
+            top: 0;
+            transform: translateY(-50%);
+            font-size: var(--small-font-size);
+            background-color: hsla(0, 0%, 10%, 0.7);
+            padding: 0 0.8rem;
+            border-radius: 4px;
+        }
+
+        /* Medium devices */
+        @media screen and (min-width: 576px) {
+            .login__form {
+                width: 440px;
+                margin-inline: auto;
+                padding: 4.5rem 3.5rem 4rem;
+            }
+            .login__title {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <!-- High-quality scenic background with KSRTC bus in lush Kerala tea plantations -->
+{#        <img src="https://storage.googleapis.com/stateless-www-justwravel-com/2024/11/b062cce8-top-10.jpg" alt="KSRTC bus in Kerala tea plantations" class="login__img">#}
+        <img src="/media/background.jpeg" alt="KSRTC bus in Kerala tea plantations" class="login__img">
+
+        <form action="/myapp/login_post/" method="post" class="login__form">
+            {% csrf_token %}
+
+            <h1 class="login__title">Login</h1>
+
+            <div class="login__content">
+                <div class="login__box">
+                    <div class="login__box-input">
+                        <input type="text" name="username" id="username" required class="login__input" placeholder=" ">
+                        <label class="login__label">Username</label>
+                    </div>
+                </div>
+
+                <div class="login__box">
+                    <div class="login__box-input">
+                        <input type="password" name="password" id="login-pass" required class="login__input" placeholder=" ">
+                        <label class="login__label">Password</label>
+                        <i class="fas fa-eye-slash login__eye" id="login-eye"></i>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/myapp/forgot_password/" class="login__forgot">Forgot Password?</a>
+
+
+
+{% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible shadow fade show" role="alert">
+{#        <button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
+{#            <span aria-hidden="true">&times;</span>#}
+{#        </button>#}
+        {{ message | safe }}
+    </div>
+{% endfor %}
+
+        <br>
+
+
+
+
+            <button type="submit" class="login__button">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/Hide Password
+        const showHiddenPass = (loginPass, loginEye) => {
+            const input = document.getElementById(loginPass);
+            const iconEye = document.getElementById(loginEye);
+
+            iconEye.addEventListener('click', () => {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    iconEye.classList.remove('fa-eye-slash');
+                    iconEye.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    iconEye.classList.remove('fa-eye');
+                    iconEye.classList.add('fa-eye-slash');
+                }
+            });
+        };
+
+        showHiddenPass('login-pass', 'login-eye');
+    </script>
+</body>
+</html>
+

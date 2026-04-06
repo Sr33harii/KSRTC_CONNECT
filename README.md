@@ -413,10 +413,6 @@ erDiagram
 
 <p align="center">
 
-## Mobile Screenshots
-
-## Mobile Screenshots
-
 ### Home
 ![Home](assets/mobile-ss/home.png)
 
@@ -436,7 +432,7 @@ erDiagram
 ![Forgot Password](assets/mobile-ss/forgot-pass.png)
 
 ### Feedback
-![Feedback](assets/mobile-ss/feedback.png)
+![Feed-back](assets/mobile-ss/feed-back.png)
 
 ### Bus Schedule
 ![Bus Schedule](assets/mobile-ss/add-bus.png)
@@ -449,8 +445,8 @@ erDiagram
 ## 📬 Contact
 
 For any queries or collaboration:
-- Email: your-email@example.com
-- GitHub: https://github.com/your-username
+- Email: 1.insreehari@gmail.com
+- GitHub: https://github.com/Sr33harii
 
 ---
 
@@ -461,5 +457,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Made with ❤️ for KSRTC
+   KSRTC CONNECT
 </p>
